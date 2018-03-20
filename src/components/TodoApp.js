@@ -1,5 +1,5 @@
 import React from 'react';
-import Reboot from 'material-ui/Reboot';
+import CssBaseline from 'material-ui/CssBaseline';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
@@ -10,7 +10,7 @@ import List, { ListItem, ListItemText } from 'material-ui/List';
 export default function TodoApp({ task, tasks, inputTask, addTask }) {
   return (
     <div>
-      <Reboot />
+      <CssBaseline />
       <AppBar position="static">
         <Toolbar>
           <Typography type="title" color="inherit">

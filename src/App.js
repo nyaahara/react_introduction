@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Ranking from './containers/Ranking';
 import Nav from './containers/Nav';
-import Reboot from 'material-ui/Reboot'; // 追加
+import CssBaseline from 'material-ui/CssBaseline'; // 追加
 import AppBar from 'material-ui/AppBar'; // 追加
 import Toolbar from 'material-ui/Toolbar'; // 追加
 import Typography from 'material-ui/Typography'; // 追加
@@ -12,8 +12,8 @@ class App extends Component {
   render() {
     return (
       <div className="App" style={{ paddingLeft: 240 }}> {/* styleを追加 */}
-        {/* Rebootを追加 */}
-        <Reboot />
+        {/* CssBaselineを追加 */}
+        <CssBaseline />
 
         {/* ページタイトルを追加 */}
         <AppBar style={{ left: 240 }}> {/* styleを追加 */}

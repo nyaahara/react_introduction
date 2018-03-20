@@ -2,13 +2,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // 削除: import { createStore, combineReducers } from 'redux';
-// 削除: import logger from 'redux-logger';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux'; // 追加
 import createBrowserHistory from 'history/createBrowserHistory'; // 追加
+import './index.css';
 import App from './App';
 // 削除: import * as reducers from './reducers';
 import createStore from './createStore'; // 追加
+import registerServiceWorker from './registerServiceWorker';
 
 // historyのインスタンスを生成
 const history = createBrowserHistory();
@@ -29,3 +30,4 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
+registerServiceWorker();

@@ -1,5 +1,6 @@
 // src/containers/Nav.js
 import { connect } from 'react-redux';
+import { push } from 'react-router-redux';
 import Nav from '../components/Nav';
 
 const mapStateToProps = state => ({
@@ -7,4 +8,11 @@ const mapStateToProps = state => ({
   categories: state.shopping.categories
 });
 
-export default connect(mapStateToProps)(Nav);
+// react-router-reduxのpushでページ遷移を発生させる
+const mapDispatchToProps = dispatch => ({
+  onClick (path) {
+    dispatch(push(path));
+  }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Nav);

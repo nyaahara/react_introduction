@@ -1,15 +1,25 @@
+// src/index.js
 import React from 'react';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import { render } from 'react-dom';
-import tasksReducer from './reducers/tasks';
-import TodoApp from './containers/TodoApp';
+import ReactDOM from 'react-dom';
+import { createStore, combineReducers, applyMiddleware } from 'redux'; // 追加
+import logger from 'redux-logger'; // 追加
+import { Provider } from 'react-redux'; // 追加
+import App from './App';
+import * as reducers from './reducers'; // 追加
 
-const store = createStore(tasksReducer);
+// Storeの生成
+const store = createStore(
+  // 一つのReducerで完結することはほぼ無いので、
+  // 最初からcombineReducersを使う実装にしておく
+  combineReducers(reducers),
+  // Redux Middlewareにredux-loggerを設定
+  applyMiddleware(logger)
+);
 
-render(
+ReactDOM.render(
+  // StoreをAppコンポーネントに紐付け
   <Provider store={store}>
-    <TodoApp />
+    <App />
   </Provider>,
   document.getElementById('root')
 );
